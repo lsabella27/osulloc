@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+:root {
+    --mainFont: 'Arita-dotum';
+    --subFont: 'Philosopher';
+    --main-color: #a89079 ;
+    --sub-color: #758246 ;
+    --hover-color: #67625e ;
+}
+
+body {line-height: 1.5; color: #000; font-size: 1.6rem;
+    overflow-x: hidden; font-family: 'Philosopher' , 'Arita-dotum' , sans-serif;}
+    /* 영문폰트, 한글폰트 , 대체글꼴 순으로 입력 */
+
+.inner { max-width: 1700px; width: 100%; padding: 0 5%; margin: 0 auto; }
+
+.all_wrap {position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: var(--hover-color); z-index: 50; text-align: center;}
+.all_wrap h3 {font-size: 10rem; color: var(--main-color); text-transform: uppercase; padding: 100px 0 50px;}
+.all_wrap .all_gnb {display: flex; gap: 50px; justify-content: center;}
+.all_wrap .all_gnb > li > a {display: block; font-size: 3rem; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.2); width: 200px; padding: 20px 0;}
+
+.all_wrap .all_gnb > li .all_depth2 {padding-top: 20px;}
+.all_wrap .all_gnb > li .all_depth2 a {color: rgba(255,255,255,0.3); display: block; padding: 5px 0; transition: all 0.5s;}
+.all_wrap .all_gnb > li .all_depth2 a:hover {color: #e2e253; font-weight: 700;}
+
+.all_wrap .all_close {width: 60px; height: 60px; background: #000 url('../images/common/btn_close.jpg')no-repeat center; font-size: 0; cursor: pointer; position: absolute; right: 0; top: 0; vertical-align: top;}
+
+
+/* 팝업영역 popup */
+.popup {background: var(--main-color); text-align: center; padding: 10px;}
+.popup a {color: #fff;}
+.popup i {float: right; color: #fff; font-size: 3rem; cursor: pointer; transform: translateY(-10px);}
+
+
+/* header */
+#header {padding: 10px 0; position: relative;}
+#header h1 img {display: block;}
+#header .inner {display: flex; justify-content: space-between; align-items: flex-end; max-width: 100%; /* header 넓게 쓰기 */}
+#header .gnb {display: flex;}
+#header .gnb > li {position: relative;}
+#header .gnb > li::before {content: ""; display: block; width: 8px; height: 8px; background: var(--sub-color); border-radius: 50%; position: absolute; left: calc(50% - 4px); top: -15px; opacity: 0; transition: all 0.5s;} 
+#header .gnb > li:hover::before {top: 0; opacity: 1;}
+#header .gnb > li > a {display: block; padding: 10px 40px; font-size: 2rem; transition: all 0.5s;}
+#header .gnb > li:hover a{color: var(--sub-color);}
+
+
+@media (max-width:1400px){
+    #header h1 {transform: scale(0.8);}
+}
+
+@media (max-width:768px){
+    #header .util .language {display: none;}
+    #header nav {display: none;}
+}
+
+/* mgnb 모바일 사이트맵 영역 */
+.mgnb_wrap {position: fixed; left: 0; top: 0; background: #fff; width: 100%; height: 100%; z-index: 60; padding: 50px 20px; }
+.mgnb_wrap .mgnb {border-top: 1px solid #000;}
+.mgnb_wrap .mgnb > li {border-bottom: 1px solid #ddd;}
+.mgnb_wrap .mgnb > li > a {font-size: 2rem; display: block; padding: 10px 0; pointer-events: none; /* 하이퍼링크 없애기 클릭방지 */}
+.mgnb_wrap .mgnb > li .mdepth2 li a {display: block; font-size: 1.4rem; color: #999; padding: 5px 20px; position: relative; }
+.mgnb_wrap .mgnb > li .mdepth2 li a::before {content: ""; width: 5px; height: 5px; background: #999; border-radius: 50%; display: block; position: absolute; left: 5px; top: calc(50% - 5px);} 
+.mgnb_close {position: absolute; right: 20px; top: 20px; font-size: 2.5rem; border: 0; background: none; cursor: pointer;}
+
+
+/* dp2 */
+#header .gnb > li .depth2 {position: absolute; z-index: 30; width: 600px; display: flex;}
+#header .gnb > li .depth2 li a {display: block; padding: 30px 15px 20px; color: #fff; transition: all 0.5s;}
+#header .gnb > li .depth2 li a:hover {color: #ccb764;}
+
+
+/* util 유틸 영역 */
+#header .util {display: flex; gap: 20px; align-items: center;}
+#header .util img {width: 24px;}
+#header .util .btn_mgnb {display: none;}
+
+/* 유틸 언어영역 */
+#header .util .language {color: #999; font-size: 1.4rem; cursor: pointer;}
+#header .util .language i.active::before {transform: rotate(180deg);}
+#header .util .language ul {position: absolute; z-index: 40; background: #fff; padding: 20px; color: #847b74; transform: translateX(-10px); cursor: pointer;}
+
+
+/* dp2 배경 */
+#header .dp2_bg {background: var(--sub-color); position: absolute; left: 0; top: 70px; z-index: 20; width: 100%; height: 60px;}
+
+/* search 검색영역 */
+.search {padding-top: 100px; position: absolute; top: 73px; width: 100%; height: 250px; z-index: 100; background: #fff; border-top: 1px solid #ddd;}
+.search .search_area {display: flex; justify-content: center;}
+.search .search_area input[type="text"] {width: 500px; height: 50px; background: #eee; border-radius: 50px 0 0 50px; padding: 5px 20px; font-size: 1.6rem; font-family: var(--mainFont);}
+.search .search_area input[type="submit"] {font-size: 0; border-radius: 0 50px 50px 0; background: #eee url('../images/common/search.png')no-repeat center; width: 50px; height: 50px ; cursor: pointer;}
+
+.search .search_close {position: absolute; bottom: 0px; border-radius: 50%; font-size: 3rem; border: 0; color: #fff; background: #000; padding: 3px 5px; cursor: pointer; transform: translate(-50%,15px);}
+
+
+/* footer */
+#footer {background: #eee; padding: 100px 5% 100px; max-width: 100%;}
+#footer .footer_top {display: flex; justify-content: space-between; border-bottom: 1px solid  rgba(153, 153, 153, 0.3); align-items: end; padding-bottom: 20px; flex-wrap: wrap;}
+#footer .footer_top .footer_member {display: flex; gap: 20px; flex-wrap: wrap;}
+#footer .footer_top .cs_call {text-align: right;}
+#footer .footer_top .cs_call span {color: #758246; font-size: 3rem; font-weight: 700;}
+
+#footer .footer_bottom {display: flex; justify-content: space-between; flex-wrap: wrap;}
+#footer .footer_bottom .footer_link {display: flex; gap: 20px; padding: 50px 0 30px; flex-wrap: wrap;}
+#footer .footer_bottom address {color: #999; }
+#footer .footer_bottom .copy {color: rgba(153, 153, 153, 0.4); padding-top: 50px;} 
+
+@media (max-width:1000px){
+    #footer {padding: 50px 5% 50px;}
+    #footer .footer_top > * {width: 100%;}
+    #footer .footer_top .cs_call {padding-top: 20px; text-align: left;}
+    #footer .footer_bottom > * {width: 100%;}
+}
+
+@media (max-width:768px) {
+    #footer {font-size: 1.4rem;} 
+}
+
+
+/* gotop */
+.gotop { position: fixed; right: 0; bottom: 100px; width: 50px; height: 50px; background: #000; color: #fff; text-align: center; padding-top: 10px; cursor: pointer; z-index: 100;}
